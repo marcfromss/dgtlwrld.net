@@ -75,8 +75,8 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -210,7 +210,7 @@
 
   /* Editorial typography enhancements */
   .editorial-title {
-    font-family: var(--font-geist-mono);
+    font-family: var(--font-jetbrains-mono);
     letter-spacing: -0.02em;
     font-weight: 400;
     text-transform: uppercase;
@@ -218,7 +218,7 @@
   }
 
   .editorial-subtitle {
-    font-family: var(--font-geist-mono);
+    font-family: var(--font-jetbrains-mono);
     letter-spacing: 0.1em;
     font-weight: 300;
     text-transform: uppercase;
@@ -227,7 +227,7 @@
   }
 
   .tile-label {
-    font-family: var(--font-geist-mono);
+    font-family: var(--font-jetbrains-mono);
     letter-spacing: 0.05em;
     font-weight: 500;
     text-transform: uppercase;
