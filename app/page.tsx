@@ -74,9 +74,9 @@ export default function HomePage() {
               </h2>
             </Link>
 
-            {/* Apps Tile */}
+            {/* Portfolio Builder Tile */}
             <Link
-              href="/apps"
+              href="/builder"
               className="group retro-tile rounded-3xl p-8 md:p-12 h-64 md:h-80 flex flex-col justify-end"
             >
               <div className="pixel-corner bottom-4 left-4"></div>
@@ -84,7 +84,7 @@ export default function HomePage() {
                 <Settings className="w-8 h-8 text-muted-foreground group-hover:text-foreground transition-colors duration-300" />
               </div>
               <h2 className="tile-label text-foreground group-hover:text-accent-foreground transition-colors duration-300">
-                Apps
+                Portfolio Builder
               </h2>
             </Link>
           </div>
