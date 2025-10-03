@@ -127,19 +127,15 @@ function RetroPixelTemplate({ files }: { files: File[] }) {
               transition={{ delay: index * 0.1 }}
               className="aspect-square border-2 border-cyan-400 bg-gray-800"
             >
-              {file.type.startsWith('image/') ? (
-                <Image
-                  src={URL.createObjectURL(file)}
-                  alt={file.name}
-                  width={200}
-                  height={200}
-                  className="object-cover w-full h-full"
-                />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center">
-                  <span className="text-xs text-gray-400">Video</span>
-                </div>
-              )}
+                      {file.type.startsWith('image/') ? (
+                        <div className="w-full h-full bg-gray-200 flex items-center justify-center text-gray-500">
+                          Image Preview
+                        </div>
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center">
+                          <span className="text-xs text-gray-400">Video</span>
+                        </div>
+                      )}
             </motion.div>
           ))}
         </div>

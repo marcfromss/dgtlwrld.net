@@ -43,7 +43,7 @@ const builderTemplates = [
 ]
 
 export default function PortfolioBuilder() {
-  const [selectedTemplate, setSelectedTemplate]="useState<string | null>(null)"
+  const [selectedTemplate, setSelectedTemplate] = useState<string | null>(null)
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([])
   const [currentStep, setCurrentStep] = useState<"templates" | "upload" | "customize" | "preview">("templates")
 

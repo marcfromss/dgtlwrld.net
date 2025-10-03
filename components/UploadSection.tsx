@@ -123,21 +123,15 @@ export default function UploadSection({ uploadedFiles, setUploadedFiles, onNext,
                     </div>
                     
                     {file.type.startsWith('image/') ? (
-                      <Image
-                        src={URL.createObjectURL(file)}
-                        alt={file.name}
-                        width={150}
-                        height={150}
-                        className="object-cover w-full h-full"
-                      />
+                      <div className="w-full h-full bg-blue-100 flex items-center justify-center">
+                        <ImageIcon className="w-8 h-8 text-blue-600" />
+                      </div>
                     ) : file.type.startsWith('video/') ? (
-                      <video
-                        src={URL.createObjectURL(file)}
-                        className="object-cover w-full h-full"
-                        muted
-                      />
+                      <div className="w-full h-full bg-purple-100 flex items-center justify-center">
+                        <Video className="w-8 h-8 text-purple-600" />
+                      </div>
                     ) : (
-                      <div className="text-center">
+                      <div className="w-full h-full bg-gray-100 flex items-center justify-center">
                         {getFileIcon(file)}
                       </div>
                     )}
