@@ -32,7 +32,7 @@ export default function TemplateGallery({ templates, selectedTemplate, onTemplat
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {templates.map((template, index) => (
           <motion.div
             key={template.id}
@@ -54,11 +54,15 @@ export default function TemplateGallery({ templates, selectedTemplate, onTemplat
                 : 'border-transparent hover:border-border hover:scale-[1.02]'
             }`}>
               <div className="relative">
-                <div className="aspect-video bg-gradient-to-br from-muted to-muted/50 rounded-t-lg overflow-hidden relative">
+                <div className="aspect-[4/3] bg-gradient-to-br from-muted to-muted/50 rounded-t-lg overflow-hidden relative">
                   {template.id === "retro-pixel" && <RetroPixelPreview />}
                   {template.id === "minimal-bold" && <MinimalBoldPreview />}
                   {template.id === "neon-grid" && <NeonGridPreview />}
                   {template.id === "organic-flow" && <OrganicFlowPreview />}
+                  {template.id === "floating-cards" && <FloatingCardsPreview />}
+                  {template.id === "morphing-geometry" && <MorphingGeometryPreview />}
+                  {template.id === "particle-matrix" && <ParticleMatrixPreview />}
+                  {template.id === "depth-layers" && <DepthLayersPreview />}
                 </div>
                 {selectedTemplate === template.id && (
                   <motion.div
@@ -226,6 +230,98 @@ function OrganicFlowPreview() {
       
       {/* Text */}
       <h3 className="absolute bottom-2 left-2 text-gray-600 text-xs font-light">ORGANIC</h3>
+    </div>
+  )
+}
+
+function FloatingCardsPreview() {
+  return (
+    <div className="w-full h-full bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 relative overflow-hidden">
+      {/* Floating cards with depth */}
+      <div className="absolute top-2 left-2 w-8 h-6 bg-white/20 rounded-md transform rotate-12 animate-pulse"></div>
+      <div className="absolute top-4 right-3 w-6 h-4 bg-cyan-400/30 rounded-sm transform -rotate-6 animate-bounce" style={{animationDelay: '0.5s'}}></div>
+      <div className="absolute bottom-4 left-4 w-10 h-7 bg-pink-400/25 rounded-lg transform rotate-6 animate-pulse" style={{animationDelay: '1s'}}></div>
+      <div className="absolute bottom-2 right-2 w-5 h-5 bg-yellow-400/40 rounded-full animate-bounce" style={{animationDelay: '1.5s'}}></div>
+      
+      {/* Depth layers */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+      
+      {/* Text */}
+      <h3 className="absolute bottom-2 left-2 text-white text-xs font-mono">FLOATING</h3>
+    </div>
+  )
+}
+
+function MorphingGeometryPreview() {
+  return (
+    <div className="w-full h-full bg-black relative overflow-hidden">
+      {/* Animated geometric shapes */}
+      <div className="absolute top-3 left-3 w-4 h-4 bg-blue-500 transform rotate-45 animate-spin" style={{animationDuration: '3s'}}></div>
+      <div className="absolute top-4 right-4 w-3 h-6 bg-green-500 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
+      <div className="absolute bottom-4 left-4 w-5 h-5 bg-red-500 transform rotate-12 animate-bounce" style={{animationDuration: '2s'}}></div>
+      <div className="absolute bottom-3 right-3 w-6 h-3 bg-yellow-500 rounded-lg animate-pulse" style={{animationDelay: '1s'}}></div>
+      
+      {/* Connecting lines */}
+      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 75">
+        <line x1="15" y1="15" x2="80" y2="20" stroke="#3b82f6" strokeWidth="1" opacity="0.6" className="animate-pulse" />
+        <line x1="85" y1="25" x2="20" y2="60" stroke="#10b981" strokeWidth="1" opacity="0.6" className="animate-pulse" style={{animationDelay: '0.5s'}} />
+      </svg>
+      
+      {/* Text */}
+      <h3 className="absolute bottom-2 left-2 text-white text-xs font-mono">GEOMETRY</h3>
+    </div>
+  )
+}
+
+function ParticleMatrixPreview() {
+  return (
+    <div className="w-full h-full bg-gradient-to-br from-gray-900 to-black relative overflow-hidden">
+      {/* Particle grid */}
+      <div className="grid grid-cols-4 grid-rows-3 gap-1 h-full p-2">
+        {Array.from({length: 12}).map((_, i) => (
+          <div 
+            key={i} 
+            className={`w-full h-full rounded-full animate-pulse ${
+              i % 3 === 0 ? 'bg-cyan-400/60' : 
+              i % 3 === 1 ? 'bg-blue-500/40' : 'bg-purple-500/50'
+            }`}
+            style={{
+              animationDelay: `${i * 0.1}s`,
+              animationDuration: '2s'
+            }}
+          ></div>
+        ))}
+      </div>
+      
+      {/* Matrix effect overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-green-500/10 to-transparent"></div>
+      
+      {/* Text */}
+      <h3 className="absolute bottom-2 left-2 text-green-400 text-xs font-mono">MATRIX</h3>
+    </div>
+  )
+}
+
+function DepthLayersPreview() {
+  return (
+    <div className="w-full h-full bg-gradient-to-br from-slate-900 to-blue-900 relative overflow-hidden">
+      {/* Background layer */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20"></div>
+      
+      {/* Middle layer */}
+      <div className="absolute top-2 left-2 right-2 bottom-2 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 rounded-lg animate-pulse"></div>
+      
+      {/* Foreground layer */}
+      <div className="absolute top-4 left-4 right-4 bottom-4 bg-gradient-to-br from-white/10 to-transparent rounded-lg border border-white/20">
+        {/* Floating elements */}
+        <div className="absolute top-2 left-2 w-2 h-2 bg-white/60 rounded-full animate-bounce"></div>
+        <div className="absolute top-2 right-2 w-1 h-1 bg-cyan-400/80 rounded-full animate-pulse"></div>
+        <div className="absolute bottom-2 left-2 w-3 h-1 bg-blue-400/60 rounded-full animate-bounce" style={{animationDelay: '0.5s'}}></div>
+        <div className="absolute bottom-2 right-2 w-1 h-3 bg-purple-400/70 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
+      </div>
+      
+      {/* Text */}
+      <h3 className="absolute bottom-2 left-2 text-white text-xs font-mono">DEPTH</h3>
     </div>
   )
 }

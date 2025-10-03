@@ -39,6 +39,34 @@ const builderTemplates = [
     description: "Fluid and dynamic layout system",
     preview: "/api/placeholder/600/400",
     category: "Creative"
+  },
+  {
+    id: "floating-cards",
+    name: "Floating Cards",
+    description: "3D floating card animations with depth",
+    preview: "/api/placeholder/600/400",
+    category: "Interactive"
+  },
+  {
+    id: "morphing-geometry",
+    name: "Morphing Geometry",
+    description: "Animated geometric shapes with depth layers",
+    preview: "/api/placeholder/600/400",
+    category: "Interactive"
+  },
+  {
+    id: "particle-matrix",
+    name: "Particle Matrix",
+    description: "Animated particle system with depth",
+    preview: "/api/placeholder/600/400",
+    category: "Interactive"
+  },
+  {
+    id: "depth-layers",
+    name: "Depth Layers",
+    description: "Multi-layered design with parallax effects",
+    preview: "/api/placeholder/600/400",
+    category: "Interactive"
   }
 ]
 

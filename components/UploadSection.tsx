@@ -123,12 +123,27 @@ export default function UploadSection({ uploadedFiles, setUploadedFiles, onNext,
                     </div>
                     
                     {file.type.startsWith('image/') ? (
-                      <div className="w-full h-full bg-blue-100 flex items-center justify-center">
-                        <ImageIcon className="w-8 h-8 text-blue-600" />
+                      <div className="w-full h-full bg-blue-100 flex items-center justify-center relative overflow-hidden">
+                        <Image
+                          src={URL.createObjectURL(file)}
+                          alt={file.name}
+                          fill
+                          className="object-cover"
+                        />
                       </div>
                     ) : file.type.startsWith('video/') ? (
-                      <div className="w-full h-full bg-purple-100 flex items-center justify-center">
-                        <Video className="w-8 h-8 text-purple-600" />
+                      <div className="w-full h-full bg-purple-100 flex items-center justify-center relative overflow-hidden">
+                        <video
+                          src={URL.createObjectURL(file)}
+                          className="w-full h-full object-cover"
+                          muted
+                          loop
+                          autoPlay
+                          playsInline
+                        />
+                        <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                          <Video className="w-8 h-8 text-white" />
+                        </div>
                       </div>
                     ) : (
                       <div className="w-full h-full bg-gray-100 flex items-center justify-center">
